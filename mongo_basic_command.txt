@@ -1,0 +1,28 @@
+//show Databases
+show dbs
+
+//Create Databases
+use people
+
+#Collections are equivalent to tables in sql language
+
+//Create a Collections
+db.createCollection("person") --enqunanto nao criar collection na mostra
+
+//Insert Data
+db.person.insert(
+    {
+        name: "John",
+        age: 30
+    }
+
+)
+
+//Find a DATA - equivalent to SELECT * FROM person in SQL language
+db.person.find()
+
+//Display data in a better way
+db.person.find().pretty()
+
+//after press enter ... ----> means break the line
+//cls or clear
