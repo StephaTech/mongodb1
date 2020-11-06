@@ -1,14 +1,14 @@
 //show Databases
 show dbs
-
+=================================================================
 //Create Databases
 use people
 
 #Collections are equivalent to tables in sql language
-
+==============================================
 //Create a Collections
 db.createCollection("person") --enqunanto nao criar collection na mostra
-
+===========================================================================
 //Insert Data
 db.person.insert(
     {
@@ -17,12 +17,64 @@ db.person.insert(
     }
 
 )
-
+====================================================================
 //Find a DATA - equivalent to SELECT * FROM person in SQL language
 db.person.find()
 
 //Display data in a better way
 db.person.find().pretty()
+---------------------------------------------
+//Add new field to an elements ObjectId("5fa3f02aa4a0b42b2ef278e8"),/ObjectId("5fa3f02aa4a0b42b2ef278e9")
+db.person.update(
+    { _id: ObjectId("5fa3f02aa4a0b42b2ef278e7") },
+    {
+        $push: {kids: ["Taba", "Naruna", "Josefina"]}
+    }
+)
+------------------------------------------------
+//Encontra por name
+> db.person.find( {    name: "John" } ).pretty()
+{
+        "_id" : ObjectId("5fa3f02aa4a0b42b2ef278e7"),
+        "age" : 101,
+        "name" : "John",
+        "surname" : "Bobland",
+        "kids" : [
+                [
+                        "Taba",
+                        "Naruna",
+                        "Josefina"
+                ]
+        ]
+}
+--------------------------------------------------------------
+// find by Name
+> db.person.find(
+...    {
+...     name: "John"
+...    }
+... ).pretty()
+=================================================
+//find by _id
+> db.person.find( {     _id:ObjectId ("5fa3f02aa4a0b42b2ef278e7") } ).pretty()
 
+
+======================================================
+//Unset a field
+db.pesrson.update(
+       {
+           _id: ObjectId("5fa3f02aa4a0b42b2ef278e7") },
+       {
+           $unset: {surname: ""}
+       }
+)
+============================================================
+//Find by one more fields
+db.person.find(
+       {name: "John", surname: "Lobao"}
+).pretty()
+
+
+================================
 //after press enter ... ----> means break the line
 //cls or clear
