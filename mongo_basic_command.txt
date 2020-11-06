@@ -91,5 +91,63 @@ db.person.count
 
 
 =====================================
+//display maior ou igual
+db.person.find(
+      {
+           age: {$lt:25}
+      }
+)
+============
+//display greater
+db.person.find(
+    {
+        age:{$lt:25}
+    }
+)
+===============================
+// if is something greater and equivalent.....
+db.person.find(
+    {
+        age: {$gte:30}
+    }
+)
+==================================
+// if something is less or equal than (<=)
+db.person.find(
+{}
+    age: $lte: 35}
+    }
+)
+=============================
+#if something is different than (!=)
+db.person.find(
+    {
+        age : {$ne:25}
+    }
+)
+==============================
+#if somethin is equal or (||) NAO FUNCIONOU ...SABADO RAUL COMFIRMAR
+db.person.find(
+    {
+        age: {$or: 25}
+    }
+)
+========================
+#there is the field
+ db.person.find(
+...    {
+...     kids: {$exists: true}
+...   }
+... )
+======================================
+there is not the field
+> db.person.find(
+...    {
+...     kids: {$exists:false}
+...   }
+... )
+
+
+
 //after press enter ... ----> means break the line
 //cls or clear
