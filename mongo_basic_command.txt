@@ -76,5 +76,20 @@ db.person.find(
 
 
 ================================
+//How to get all collections
+db.getCollectionNames()
+===============================================
+//remmove inside the database
+db.preson.remove(
+       {
+           _-id: ObjectId("5fa538220e8323be61b1b651")
+       }
+)
+===================================
+//Display count
+db.person.count
+
+
+=====================================
 //after press enter ... ----> means break the line
 //cls or clear
